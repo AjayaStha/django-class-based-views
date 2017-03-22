@@ -1,4 +1,4 @@
-from django.views.generic.edit import FormView
+from django.views.generic import FormView,TemplateView
 from django.shortcuts import render, redirect
 
 from .forms import ContactForm
@@ -19,3 +19,6 @@ class ContactView(FormView):
 			form.save()
 			return redirect('/thanks/')
 		return render(request, self.template_name,{'form':form})
+
+class Home(TemplateView):
+	template_name='home.html'
